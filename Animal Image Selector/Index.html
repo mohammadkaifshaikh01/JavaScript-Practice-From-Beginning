@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Animal Image Selector</title>
+</head>
+<style>
+   body {
+      background-color: #f2f2f2;
+      padding: 0;
+      margin: 0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      font-family: Arial, sans-serif;
+   }
+
+   #container {
+      width: 400px;
+      display: flex;
+      align-items: center;
+      background-color: #fff;
+      height: 600px;
+      flex-direction: column;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+      padding: 20px;
+   }
+
+   #animals {
+      width: 80%;
+      padding: 10px;
+      font-size: 16px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+      box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+      outline: none;
+   }
+
+   #animals:hover {
+      border-color: #888;
+   }
+
+   #image {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      border-radius: 10px;
+      background-color: #f9f9f9;
+   }
+
+   #image img {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: cover;
+      border-radius: 10px;
+   }
+
+   h1 {
+      font-size: 24px;
+      color: #333;
+      margin-bottom: 15px;
+   }
+</style>
+<body>
+
+   <div id="container">
+      <h1>Select an Animal</h1>
+      <select id="animals" onchange="changeimage()">
+         <option>Select Option</option>
+         <option value="Dog">Dog</option>
+         <option value="Lion">Lion</option>
+         <option value="Elephant">Elephant</option>
+         <option value="Cat">Cat</option>
+      </select>
+
+      <div id="image">
+
+      </div>
+   </div>
+
+</body>
+
+<script>
+
+   function changeimage() {
+      const selectImage = document.getElementById("animals")
+      const image = document.getElementById("image")
+      
+      const animals = selectImage.value
+
+      image.innerHTML = ""
+      if (animals === "Cat") {
+         const img = document.createElement("img")
+         img.src = "https://upload.wikimedia.org/wikipedia/commons/thumb/1/15/Cat_August_2010-4.jpg/640px-Cat_August_2010-4.jpg"
+         image.appendChild(img)
+      } else if (animals === "Dog") {
+         const img = document.createElement("img")
+         img.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ9FJBAdCHiGgeRQRNdyOf_pPob-qt7cqiw5Q&s"
+         image.appendChild(img)
+      } else if (animals === "Elephant") {
+         const img = document.createElement("img")
+         img.src = "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRImnhQTSkqQvtvTdiVYfhKqad4p9qxbhJXQZO0CLNTMEBLNeMtVPSdgGtxul5-ALAz7mY&usqp=CAU"
+         image.appendChild(img)
+      }
+      else if (animals === "Lion") {
+         const img = document.createElement("img")
+         img.src = "https://t4.ftcdn.net/jpg/01/79/69/37/360_F_179693709_ObozAm8nXPQJ5bPvgC529qdu8uBChJAv.jpg"
+         image.appendChild(img)
+      }else{
+         const h1 = document.createElement("h1")
+         h1.innerText ="Select An Option"
+         image.appendChild(h1)
+         
+         const img = document.createElement("img")
+         img.src = "https://img.freepik.com/free-vector/select-concept-illustration_114360-383.jpg"
+         image.appendChild(img)
+         
+      }
+   }
+
+   changeimage()
+
+
+
+</script>
+
+</html>
+
+
+
+

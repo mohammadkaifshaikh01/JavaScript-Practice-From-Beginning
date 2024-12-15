@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+   <meta charset="UTF-8">
+   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Character Length</title>
+   <style>
+      body {
+         font-family: Arial, sans-serif;
+         margin: 0;
+         padding: 0;
+         display: flex;
+         justify-content: center;
+         align-items: center;
+         height: 100vh;
+         background-color: #f4f4f9;
+      }
+
+      #container {
+         text-align: center;
+         padding: 20px;
+         background-color: #ffffff;
+         border-radius: 10px;
+         margin-top: 1rem;
+         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+      }
+
+      input {
+         width: 80%;
+         padding: 10px;
+         margin: 10px 0;
+         border: 1px solid #ccc;
+         border-radius: 5px;
+         font-size: 16px;
+      }
+
+      button {
+         padding: 10px 20px;
+         border: none;
+         background-color: #007bff;
+         color: #ffffff;
+         border-radius: 5px;
+         font-size: 16px;
+         cursor: pointer;
+         transition: background-color 0.3s ease;
+      }
+
+      button:hover {
+         background-color: #0056b3;
+      }
+
+      #display {
+         margin-top: 20px;
+         color: #333;
+      }
+
+      #display p {
+         margin: 10px 0;
+         font-size: 18px;
+      }
+   </style>
+</head>
+
+<body>
+   <div id="container">
+      <input type="text" id="inputSom" placeholder="Enter Something You Want">
+      <button onclick="convert()">Go</button>
+      <div id="display">
+
+         <p id="WithSpace"> </p>
+         <p id="WithOutSpace"> </p>
+
+      </div>
+
+   </div>
+
+
+</body>
+<script>
+   const input = document.getElementById("inputSom")
+   const WithSpace = document.getElementById("WithSpace")
+   const WithOutSpace = document.getElementById("WithOutSpace")
+
+   function convert() {
+      const result = input.value
+
+      const answer = result.length
+      const withAnswer = result.replace(/\s/g, '').length
+      WithSpace.innerText = `The length of Your Input With Space is: ${answer}`
+      WithOutSpace.innerText = `The length of Your Input With Out Space is: ${withAnswer}`
+
+      WithSpace.appendChild(display)
+      WithOutSpace.appendChild(display)
+
+   }
+
+   convert()
+</script>
+
+</html>
